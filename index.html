@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Post</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    </style>
+</head>
+<body class="bg-light">
+  <div class="instagram-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo">
+    <span>Instagram</span>
+  </div>
+  <div class="button-container">
+    <button class="create-post-btn" onclick="openPostPopup()">Create a new post</button>
+    <button class="settings-btn" onclick="toggleSettingsMenu()">
+      <i class="fas fa-cogs"></i><i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+  <div id="settingsMenu" class="settings-menu">
+    <ul>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Accessibility</a></li>
+      <li><a href="#">Privacy and Data</a></li>
+      <li><a href="#" class="logout">Log out</a></li>
+    </ul>
+  </div>
+  <div id="postPopup" class="post-popup">
+    <div class="post-popup-header">
+      <h2>Create a new post</h2>
+      <span class="close-x" onclick="closePostPopup()">X</span>
+    </div>
+    <div class="form-group">
+      <label for="caption">Caption:</label>
+      <textarea id="caption" placeholder="Add the caption of your post here"></textarea>
+    </div>
+    <button class="close-btn" onclick="closePostPopup()">Close</button>
+    <button class="publish-btn" onclick="publishPost()">Publish</button>
+  </div>
+  <div class="container-fluid mt-4">
+    <div class="d-flex justify-content-center mb-3">
+      <button class="btn-small me-2" onclick="showGrid()"><i class="fa-solid fa-table-cells"></i></button>
+      <button class="btn-small" onclick="showVertical()"><i class="fa-solid fa-square"></i></button>
+    </div>
+    <div id="gridContainer" class="post-container grid-container">
+      <img src="images/image1.jpg" alt="Dog 1">
+      <img src="images/image2.jpg" alt="Dog 2">
+      <img src="images/image3.jpg" alt="Dog 3">
+      <img src="images/image4.jpg" alt="Dog 4">
+      <img src="images/image5.jpg" alt="Dog 5">
+      <img src="images/image6.jpg" alt="Dog 6">
+      <img src="images/image7.jpg" alt="Dog 7">
+      <img src="images/image8.jpg" alt="Dog 8">
+      <img src="images/image9.jpg" alt="Dog 9">
+    </div>
+    <div id="verticalContainer" class="post-container vertical-container">
+      <div class="vertical-header">
+        <span>My Crazy dog Spark!</span>
+        <span>08/26</span>
+      </div>
+      <img src="images/image1.jpg" alt="Dog 1">
+      <div class="likes-section">
+        204 Likes<br>This is an example of a very good photo that you can post on Instagram
+      </div>
+      <div class="photo-text-container">
+        <div class="photo-text"><strong>Beautiful cliff!</strong></div>
+        <div class="photo-date"><strong>04/09</strong></div>
+      </div>
+      <img src="images/image10.jpg" alt="Dog 2">
+      <div class="likes-section">
+        26985 Likes<br>This is an example of a very good photo that you can post on Instagram
+      </div>
+      <div class="photo-text-container">
+        <div class="photo-text"><strong>Enjoying the sunset!</strong></div>
+        <div class="photo-date"><strong>06/10</strong></div>
+      </div>
+      <img src="images/image11.jpg" alt="Dog 3">
+      <div class="likes-section">
+        <strong>104 Likes<br>This is an example of a very good photo that you can post on Instagram</strong>
+      </div>
+    </div>
+  </div>
+  <script>
+    function toggleSettingsMenu() {
+      var menu = document.getElementById("settingsMenu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+    function openPostPopup() {
+      document.getElementById('postPopup').style.display = 'block';
+    }
+    function closePostPopup() {
+      document.getElementById('postPopup').style.display = 'none';
+    }
+    function publishPost() {
+      alert('Post published!');
+      closePostPopup();
+    }
+    function showGrid() {
+      document.getElementById('gridContainer').style.display = 'grid';
+      document.getElementById('verticalContainer').style.display = 'none';
+    }
+    function showVertical() {
+      document.getElementById('gridContainer').style.display = 'none';
+      document.getElementById('verticalContainer').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
