@@ -8,19 +8,21 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    </style>
+  </style>
 </head>
 <body class="bg-light">
   <div class="instagram-header">
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo">
     <span>Instagram</span>
   </div>
+
   <div class="button-container">
-    <button class="create-post-btn" onclick="openPostPopup()">Create a new post</button>
-    <button class="settings-btn" onclick="toggleSettingsMenu()">
+    <button id="createPostBtn" class="create-post-btn">Create a new post</button>
+    <button id="settingsBtn" class="settings-btn">
       <i class="fas fa-cogs"></i><i class="fas fa-chevron-down"></i>
     </button>
   </div>
+
   <div id="settingsMenu" class="settings-menu">
     <ul>
       <li><a href="#">Profile</a></li>
@@ -29,22 +31,33 @@
       <li><a href="#" class="logout">Log out</a></li>
     </ul>
   </div>
+
   <div id="postPopup" class="post-popup">
     <div class="post-popup-header">
       <h2>Create a new post</h2>
-      <span class="close-x" onclick="closePostPopup()">X</span>
+      <button class="close-x" id="closePostPopup">X</button>
     </div>
+
     <div class="form-group">
       <label for="caption">Caption:</label>
       <textarea id="caption" placeholder="Add the caption of your post here"></textarea>
     </div>
-    <button class="close-btn" onclick="closePostPopup()">Close</button>
-    <button class="publish-btn" onclick="publishPost()">Publish</button>
+
+    <div class="icon-container">
+      <div class="icon-box">
+        <i class="fas fa-camera"></i>
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+    </div>
+
+    <button class="close-btn" id="closePostPopupBtn">Close</button>
+    <button class="publish-btn">Publish</button>
   </div>
+
   <div class="container-fluid mt-4">
     <div class="d-flex justify-content-center mb-3">
-      <button class="btn-small me-2" onclick="showGrid()"><i class="fa-solid fa-table-cells"></i></button>
-      <button class="btn-small" onclick="showVertical()"><i class="fa-solid fa-square"></i></button>
+      <button class="btn-small me-2" id="gridViewBtn"><i class="fa-solid fa-table-cells"></i></button>
+      <button class="btn-small" id="verticalViewBtn"><i class="fa-solid fa-square"></i></button>
     </div>
     <div id="gridContainer" class="post-container grid-container">
       <img src="images/image1.jpg" alt="Dog 1">
@@ -67,7 +80,7 @@
         204 Likes<br>This is an example of a very good photo that you can post on Instagram
       </div>
       <div class="photo-text-container">
-        <div class="photo-text"><strong>Beautiful cliff!</strong></div>
+        <div class="photo-text"><strong>beautiful cliff!</strong></div>
         <div class="photo-date"><strong>04/09</strong></div>
       </div>
       <img src="images/image10.jpg" alt="Dog 2">
@@ -84,29 +97,34 @@
       </div>
     </div>
   </div>
+
   <script>
-    function toggleSettingsMenu() {
-      var menu = document.getElementById("settingsMenu");
-      menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
-    function openPostPopup() {
-      document.getElementById('postPopup').style.display = 'block';
-    }
-    function closePostPopup() {
-      document.getElementById('postPopup').style.display = 'none';
-    }
-    function publishPost() {
-      alert('Post published!');
-      closePostPopup();
-    }
-    function showGrid() {
-      document.getElementById('gridContainer').style.display = 'grid';
-      document.getElementById('verticalContainer').style.display = 'none';
-    }
-    function showVertical() {
-      document.getElementById('gridContainer').style.display = 'none';
-      document.getElementById('verticalContainer').style.display = 'block';
-    }
+    // Mostrar pop-up de crear post
+    document.getElementById("createPostBtn").addEventListener("click", function() {
+      document.getElementById("postPopup").classList.add("show");
+    });
+
+    // Cerrar pop-up de crear post
+    document.getElementById("closePostPopup").addEventListener("click", function() {
+      document.getElementById("postPopup").classList.remove("show");
+    });
+
+    // Mostrar menú de configuración
+    document.getElementById("settingsBtn").addEventListener("click", function() {
+      document.getElementById("settingsMenu").classList.toggle("show");
+    });
+
+    // Cambiar entre vista cuadrícula y vertical
+    document.getElementById("gridViewBtn").addEventListener("click", function() {
+      document.getElementById("gridContainer").style.display = "grid";
+      document.getElementById("verticalContainer").style.display = "none";
+    });
+
+    document.getElementById("verticalViewBtn").addEventListener("click", function() {
+      document.getElementById("gridContainer").style.display = "none";
+      document.getElementById("verticalContainer").style.display = "block";
+    });
   </script>
 </body>
 </html>
+  

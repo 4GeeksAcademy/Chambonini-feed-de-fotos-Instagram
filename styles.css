@@ -98,6 +98,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 1000;
 }
 .create-post-btn {
   background-color: #28a745;
@@ -183,12 +184,6 @@
   margin: 0;
   font-size: 18px;
 }
-.close-x {
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-}
 .post-popup .form-group {
   margin-bottom: 15px;
 }
@@ -236,4 +231,30 @@
 }
 .post-popup .publish-btn:hover {
   background-color: #218838;
+}
+
+.settings-menu.show {
+  display: block;
+}
+
+.post-popup.show {
+  display: block;
+}
+
+.icon-container {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.icon-box {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.icon-box i {
+  font-size: 15px;
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 1px;
+  padding: 10px;
 }
