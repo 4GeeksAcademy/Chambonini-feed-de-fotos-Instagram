@@ -1,6 +1,18 @@
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  overflow: hidden;
+}
+.scroll-wrapper {
+height: 100vh;
+overflow-y: scroll;      
+scrollbar-width: none;   
+}
+.scroll-wrapper::-webkit-scrollbar {
+display: none;     
+} 
 .post-container {
   max-width: 100vw;
-  max-height: 100vh;
   margin: 0;
   border: none;
   border-radius: 0;
@@ -8,28 +20,29 @@
   background: white;
   padding: 10px;
 }
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
   width: 100vw;
-  height: 100vh;
   overflow-y: auto;
 }
+
 .grid-container img {
   width: 100%;
   height: auto;
   border-radius: 5px;
 }
+
 .vertical-container {
   display: none;
-  max-height: 500px;
-  overflow-y: auto;
-  width: 400px;
+  width: 100%;
+  max-width: 600px;
   margin: auto;
   text-align: left;
-  position: relative;
 }
+
 .vertical-container img {
   width: 100%;
   height: 450px;
@@ -38,6 +51,7 @@
   margin-bottom: 15px;
   border-radius: 5px;
 }
+
 .vertical-header {
   font-size: 20px;
   font-weight: bold;
@@ -45,26 +59,26 @@
   display: flex;
   justify-content: space-between;
 }
+
 .likes-section {
   font-size: 14px;
   font-weight: bold;
   margin-top: -5px;
   padding: 5px;
 }
+
 .photo-text-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.photo-text {
-  font-weight: normal;
-  font-size: 16px;
-}
+
+.photo-text,
 .photo-date {
-  text-align: right;
   font-weight: normal;
   font-size: 16px;
 }
+
 .btn-small {
   background: none;
   border: none;
@@ -77,9 +91,11 @@
   align-items: center;
   justify-content: center;
 }
+
 .btn-small i {
   color: black;
 }
+
 .instagram-header {
   display: flex;
   align-items: center;
@@ -87,11 +103,13 @@
   font-weight: bold;
   padding: 10px;
 }
+
 .instagram-header img {
   width: 30px;
   height: auto;
   margin-right: 10px;
 }
+
 .button-container {
   display: flex;
   justify-content: flex-end;
@@ -100,6 +118,7 @@
   right: 10px;
   z-index: 1000;
 }
+
 .create-post-btn {
   background-color: #28a745;
   color: white;
@@ -111,9 +130,11 @@
   cursor: pointer;
   margin-right: 10px;
 }
+
 .create-post-btn:hover {
   background-color: #218838;
 }
+
 .settings-btn {
   background-color: #b0b0b0;
   color: white;
@@ -125,12 +146,15 @@
   align-items: center;
   cursor: pointer;
 }
+
 .settings-btn:hover {
   background-color: #8e8e8e;
 }
+
 .settings-btn i {
   margin-right: 5px;
 }
+
 .settings-menu {
   display: none;
   position: absolute;
@@ -143,24 +167,30 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   padding: 10px;
 }
+
 .settings-menu ul {
   list-style-type: none;
   padding: 0;
 }
+
 .settings-menu li {
   margin: 10px 0;
 }
+
 .settings-menu li a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
 }
+
 .settings-menu li a:hover {
   color: #28a745;
 }
+
 .settings-menu li a.logout {
   color: red;
 }
+
 .post-popup {
   display: none;
   position: fixed;
@@ -174,22 +204,27 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   z-index: 9999;
 }
+
 .post-popup-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
 }
+
 .post-popup-header h2 {
   margin: 0;
   font-size: 18px;
 }
+
 .post-popup .form-group {
   margin-bottom: 15px;
 }
+
 .post-popup .form-group label {
   font-size: 14px;
 }
+
 .post-popup .form-group textarea {
   width: 100%;
   padding: 10px;
@@ -197,9 +232,11 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 .post-popup .form-group textarea::placeholder {
   color: #aaa;
 }
+
 .post-popup .close-btn {
   background-color: #b0b0b0;
   color: white;
@@ -213,9 +250,11 @@
   bottom: 10px;
   right: 100px;
 }
+
 .post-popup .close-btn:hover {
   background-color: #8e8e8e;
 }
+
 .post-popup .publish-btn {
   background-color: #28a745;
   color: white;
@@ -229,6 +268,7 @@
   bottom: 10px;
   right: 10px;
 }
+
 .post-popup .publish-btn:hover {
   background-color: #218838;
 }
@@ -246,15 +286,37 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .icon-box {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
 }
+
 .icon-box i {
   font-size: 15px;
   color: black;
   background-color: whitesmoke;
   border-radius: 1px;
   padding: 10px;
+}
+.scroll-wrapper {
+height: 100vh;
+overflow-y: scroll;
+scrollbar-width: none;
+}
+.scroll-wrapper::-webkit-scrollbar {
+display: none;
+}
+
+.top-bar {
+position: sticky;
+top: 0;
+background: #f8f9fa;
+z-index: 999;
+transition: top 0.3s ease;
+}
+
+.top-bar.hidden {
+top: -100px; 
 }
